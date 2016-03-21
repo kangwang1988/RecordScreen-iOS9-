@@ -4,7 +4,7 @@
 
 ## Overview
 
-RecordScreen-iOS9+ is a project which implements screen recording in iOS9 and plus.
+RecordScreen-iOS9+ is a project which implements screen recording in iOS9 and above.
 ## Feature
 	a.A video recording your screen in your app with ReplayKit.
 	b.Red dots indicating user action.
