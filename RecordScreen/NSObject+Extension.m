@@ -10,16 +10,6 @@
 #import <objc/runtime.h>
 
 @implementation NSObject (Extension)
-+ (void)load{
-    [self swizzerInstanceMethod:[NSObject class] selector:@selector(init) withSelector:@selector(nk_init)];
-}
-
-- (instancetype)nk_init{
-    if([NSStringFromClass([self class]) isEqualToString:@"RPPreviewViewController"])
-        NSLog(@"");
-    return [self nk_init];
-}
-
 + (BOOL)swizzerInstanceMethod:(Class)aClass selector:(SEL)aSelector1 withSelector:(SEL)aSelector2{
     Method m1 = class_getInstanceMethod(aClass, aSelector1);
     IMP imp1 = class_getMethodImplementation(aClass, aSelector1);
