@@ -305,13 +305,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Cheng Wen (BB497QKV5S)";
+				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = "RecordScreen-iOS9+/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kuaidi.liangjian;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wecoop.recordscreen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "970bfe42-09b7-464e-936c-320e92a70726";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -319,13 +319,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Cheng Wen (BB497QKV5S)";
+				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = "RecordScreen-iOS9+/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kuaidi.liangjian;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wecoop.recordscreen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "970bfe42-09b7-464e-936c-320e92a70726";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
