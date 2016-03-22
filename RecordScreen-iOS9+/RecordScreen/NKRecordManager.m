@@ -31,6 +31,10 @@ static NKRecordManager *sRecordManager = nil;
     return self;
 }
 
+- (BOOL)isRecording{
+    return _recorder.isRecording;
+}
+
 - (void)startRecording{
     [_recorder startRecordingWithMicrophoneEnabled:YES handler:^(NSError * _Nullable error) {
     }];

@@ -9,6 +9,9 @@
 #import "RPPreviewViewController+Hook.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "NSObject+Extension.h"
+#import <Photos/Photos.h>
+
+typedef void (^NKAlbumOperationBlock)();
 
 @implementation RPPreviewViewController (Hook)
 + (void)load{
@@ -19,14 +22,16 @@
 + (void)nk_loadPreviewViewControllerWithMovieURL:(NSURL *)aMovieUrl attachmentURL:(NSURL *)aAttachmentUrl overrideShareMessage:(NSString *)aShareMessage completion:(id)aBlock{
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
     [library writeVideoAtPathToSavedPhotosAlbum:aMovieUrl completionBlock:^(NSURL *assetURL, NSError *error){
-        
+        if(!error)
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationRecordScreenSaveSuccess object:assetURL];
     }];
 }
 
-+ (void)nk_loadPreviewViewControllerWithMovieURL:(NSURL *)aUrl completion:(id)aBlock{
++ (void)nk_loadPreviewViewControllerWithMovieURL:(NSURL *)aMovieUrl completion:(id)aBlock{
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-    [library writeVideoAtPathToSavedPhotosAlbum:aUrl completionBlock:^(NSURL *assetURL, NSError *error){
-        
+    [library writeVideoAtPathToSavedPhotosAlbum:aMovieUrl completionBlock:^(NSURL *assetURL, NSError *error){
+        if(!error)
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationRecordScreenSaveSuccess object:assetURL];
     }];
 }
 @end

@@ -11,6 +11,7 @@
 typedef NS_ENUM(NSInteger,NKLogType){
     NKLogTypeDefault
 };
+FOUNDATION_EXPORT NSString *kNotificationRecordScreenSaveSuccess;
 
 @interface NSObject (Extension)
 + (BOOL)swizzerClassMethod:(Class)aClass selector:(SEL)aSelector1 withSelector:(SEL)aSelector2;

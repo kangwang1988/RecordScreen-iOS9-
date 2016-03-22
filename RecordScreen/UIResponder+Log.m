@@ -17,9 +17,7 @@
 - (instancetype)initWithCenterPt:(CGPoint)aCenterPt{
     if(self = [super init]){
         [self setBackgroundColor:[UIColor redColor]];
-//        UIImage *img = [UIImage imageNamed:@"cursor"];
-//        [self setImage:img];
-        CGSize size = CGSizeMake(12, 12);//img.size;
+        CGSize size = CGSizeMake(8, 8);
         [self.layer setMasksToBounds:YES];
         [self.layer setCornerRadius:size.width/2.f];
         [self setFrame:CGRectMake(aCenterPt.x-size.width/2.f, aCenterPt.y-size.height/2.f, size.width, size.height)];

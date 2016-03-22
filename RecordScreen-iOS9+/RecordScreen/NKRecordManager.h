@@ -10,6 +10,7 @@
 
 @interface NKRecordManager : NSObject
 + (instancetype)sharedInstance;
+- (BOOL)isRecording;
 - (void)startRecording;
 - (void)stopRecording;
 @end
