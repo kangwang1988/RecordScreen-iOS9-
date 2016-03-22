@@ -11,13 +11,7 @@ RecordScreen-iOS9+ is a project which implements screen recording in iOS9 and ab
 	c.A log file for user action locating in the /path-to-your-app's-document-directory/nkrecordscreen/log.txt.
 
 ### Usage
-StartRecording:
-
-	[[NKRecordManager sharedInstance] startRecording]
-	
-FinishRecording:
-
-	[[NKRecordManager sharedInstance] stopRecording]
+	The code works automatically by observing notification and saves video timingly. 
 ### Flaws
 	
 	Apple's ReplayKit seems to hide some content when recording, like the statusbar, UIActionSheet,etc. I guess it might due to their consideration to user's privacy.
