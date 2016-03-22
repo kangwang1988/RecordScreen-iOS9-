@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#define DEBUG_ENABLED
 
 typedef NS_ENUM(NSInteger,NKLogType){
     NKLogTypeDefault

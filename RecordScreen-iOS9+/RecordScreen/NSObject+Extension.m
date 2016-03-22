@@ -11,51 +11,11 @@
 #import <UIKit/UIKit.h>
 #import "NKRecordManager.h"
 
-NSString * kNotificationRecordScreenSaveSuccess = @"kNotificationRecordScreenSaveSuccess";
-static NSTimer *autoSaveTimer = nil;
-static NSInteger kAutoSaveRecordScreenInterval = 600; // 默认10min保存一次。
+dispatch_queue_t syncQueue = NULL;
 
 @implementation NSObject (Extension)
 + (void)load{
-    [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(onAppDidFinishLaunching:) name:UIApplicationDidFinishLaunchingNotification object:nil];
-    [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(onAppWillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
-    [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(onAppDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSaveSuccessNotification:) name:kNotificationRecordScreenSaveSuccess object:nil];
-}
-
-#pragma mark - Notification
-+ (void)onAppDidFinishLaunching:(NSNotification *)aNotification{
-    if(![[NKRecordManager sharedInstance] isRecording])
-        [[NKRecordManager sharedInstance] startRecording];
-    if(!autoSaveTimer){
-        autoSaveTimer = [NSTimer scheduledTimerWithTimeInterval:kAutoSaveRecordScreenInterval target:self selector:@selector(onTimerExpired:) userInfo:nil repeats:YES];
-    }
-}
-
-+ (void)onAppDidBecomeActive:(NSNotification *)aNotification{
-    [self onAppDidFinishLaunching:nil];
-}
-
-+ (void)onAppWillResignActive:(NSNotification *)aNotification{
-    [self onTimerExpired:autoSaveTimer];
-}
-
-+ (void)onSaveSuccessNotification:(NSNotification *)aNotification{
-    [self onAppDidFinishLaunching:nil];
-}
-
-+ (void)onTimerExpired:(NSTimer *)aTimer{
-    if([[NKRecordManager sharedInstance] isRecording]){
-        if([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive){
-            [[NKRecordManager sharedInstance] stopRecording];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self onAppDidFinishLaunching:nil];
-            });
-        }
-    }
-    else{
-        [self onAppDidFinishLaunching:nil];
-    }
+    syncQueue = dispatch_queue_create("com.wecoop.recordscreen.log", DISPATCH_QUEUE_SERIAL);
 }
 
 + (BOOL)swizzerInstanceMethod:(Class)aClass selector:(SEL)aSelector1 withSelector:(SEL)aSelector2{
@@ -94,29 +54,33 @@ static NSInteger kAutoSaveRecordScreenInterval = 600; // 默认10min保存一次
 }
 
 + (void)logMessage:(NSString *)aMsg type:(NKLogType)aLogType{
-    static NSString *logFilePath = nil;
-    static NSDateFormatter *dateFormatter = nil;
-    if(!logFilePath){
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        logFilePath = [paths.firstObject stringByAppendingString:@"/nkrecordscreen/log.txt"];
-    }
-    if(!dateFormatter){
-        dateFormatter = [NSDateFormatter new];
-        [dateFormatter setDateFormat:@"YY-MM-dd HH:mm:ss"];
-    }
-    NSError *error = nil;
-    if(![[NSFileManager defaultManager] fileExistsAtPath:logFilePath]){
-        NSString *folder = [logFilePath substringToIndex:logFilePath.length-logFilePath.lastPathComponent.length];
-        [[NSFileManager defaultManager] createDirectoryAtPath:folder withIntermediateDirectories:YES attributes:nil error:&error];
-        if(!error){
-            [[NSFileManager defaultManager] createFileAtPath:logFilePath contents:nil attributes:nil];
+    dispatch_sync(syncQueue, ^{
+        static NSString *logFilePath = nil;
+        static NSDateFormatter *dateFormatter = nil;
+        if(!logFilePath){
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            logFilePath = [[NSString alloc] initWithString:[paths.firstObject stringByAppendingString:@"/nkrecordscreen/log.txt"]];
         }
-    }
-    NSFileHandle *fileHandler = [NSFileHandle fileHandleForWritingAtPath:logFilePath];
-    [fileHandler seekToEndOfFile];
-    NSDate *date = [NSDate date];
-    NSString *record = [NSString stringWithFormat:@"%@:%@\n",[dateFormatter stringFromDate:date],aMsg];
-    [fileHandler writeData:[record dataUsingEncoding:NSUTF8StringEncoding]];
-    [fileHandler closeFile];
+        if(!dateFormatter){
+            dateFormatter = [NSDateFormatter new];
+            [dateFormatter setDateFormat:@"YY-MM-dd HH:mm:ss"];
+        }
+        NSError *error = nil;
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSFileHandle *fileHandler = [NSFileHandle fileHandleForWritingAtPath:logFilePath];
+        if(!fileHandler){
+            NSString *folder = [logFilePath substringToIndex:logFilePath.length-logFilePath.lastPathComponent.length];
+            [fileManager createDirectoryAtPath:folder withIntermediateDirectories:YES attributes:nil error:&error];
+            if(!error){
+                [fileManager createFileAtPath:logFilePath contents:nil attributes:nil];
+            }
+        }
+        
+        [fileHandler seekToEndOfFile];
+        NSDate *date = [NSDate date];
+        NSString *record = [NSString stringWithFormat:@"%@:%@\n",[dateFormatter stringFromDate:date],aMsg];
+        [fileHandler writeData:[record dataUsingEncoding:NSUTF8StringEncoding]];
+        [fileHandler closeFile];
+    });
 }
 @end

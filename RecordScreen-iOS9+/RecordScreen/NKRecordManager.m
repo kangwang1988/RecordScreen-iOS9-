@@ -7,6 +7,7 @@
 //
 
 #import "NKRecordManager.h"
+#import "NSObject+Extension.h"
 #import <ReplayKit/ReplayKit.h>
 
 static NKRecordManager *sRecordManager = nil;
@@ -36,12 +37,24 @@ static NKRecordManager *sRecordManager = nil;
 }
 
 - (void)startRecording{
+#ifdef DEBUG_ENABLED
+    NSLog(@"[KWLM] %@-%@-recorder:%@",self,NSStringFromSelector(_cmd),_recorder);
+#endif
     [_recorder startRecordingWithMicrophoneEnabled:YES handler:^(NSError * _Nullable error) {
+    #ifdef DEBUG_ENABLED
+        NSLog(@"[KWLM] startRecording result:%@",error);
+    #endif
     }];
 }
 
 - (void)stopRecording{
+#ifdef DEBUG_ENABLED
+    NSLog(@"[KWLM] %@-%@-recorder:%@",self,NSStringFromSelector(_cmd),_recorder);
+#endif
     [_recorder stopRecordingWithHandler:^(RPPreviewViewController * _Nullable previewViewController, NSError * _Nullable error) {
+    #ifdef DEBUG_ENABLED
+        NSLog(@"[KWLM] stopRecordingWithHandler result:%@",error);
+    #endif
     }];
 }
 @end

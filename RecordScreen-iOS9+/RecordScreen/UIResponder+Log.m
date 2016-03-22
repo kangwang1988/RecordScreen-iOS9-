@@ -41,7 +41,9 @@
 }
 
 - (void)nk_sendEvent:(UIEvent *)event{
-    [NSObject logMessage:[NSString stringWithFormat:@"[%@] sendEvent:%@",self,event] type:NKLogTypeDefault];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [NSObject logMessage:[NSString stringWithFormat:@"[%@] sendEvent:%@",self,event] type:NKLogTypeDefault];
+    });
     NSSet *touches = [event allTouches];
     UIWindow *supWindow = self;
     for(UITouch *touch in touches){

@@ -10,7 +10,6 @@
 #import "NKRecordManager.h"
 
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *recordBtn;
 @property (weak, nonatomic) IBOutlet UIButton *countBtn;
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;
 @property (nonatomic,strong) NSTimer *timer;
@@ -50,17 +49,6 @@
     [self updateUIComponents];
 }
 
-- (IBAction)onRecordBtnPressed:(id)sender {
-    [self setIsRecoding:!self.isRecoding];
-    if(self.isRecoding){
-        [[NKRecordManager sharedInstance] startRecording];
-    }
-    else{
-        [[NKRecordManager sharedInstance] stopRecording];
-    }
-    [self updateUIComponents];
-}
-
 #pragma mark - Timer
 - (void)startTimer{
     if(self.timer){
@@ -87,8 +75,6 @@
 - (void)updateUIComponents{
     NSString *title = self.isCounting?@"结束计数":@"开始计数";
     [self.countBtn setTitle:title forState:UIControlStateNormal];
-    title = self.isRecoding?@"结束录屏":@"开始录屏";
-    [self.recordBtn setTitle:title forState:UIControlStateNormal];
     NSString *info = nil;
     if(self.num){
         long long number = self.num.longLongValue;

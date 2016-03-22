@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		291BE9321CA17B4B00A08114 /* UIApplication+RecordScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 291BE9301CA17B4B00A08114 /* UIApplication+RecordScreen.m */; };
 		294893E31C9FF8E000D79958 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 294893E21C9FF8E000D79958 /* main.m */; };
 		294893E61C9FF8E000D79958 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 294893E51C9FF8E000D79958 /* AppDelegate.m */; };
 		294893E91C9FF8E000D79958 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 294893E81C9FF8E000D79958 /* ViewController.m */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		291BE9301CA17B4B00A08114 /* UIApplication+RecordScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+RecordScreen.m"; sourceTree = "<group>"; };
+		291BE9311CA17B4B00A08114 /* UIApplication+RecordScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+RecordScreen.h"; sourceTree = "<group>"; };
 		294893DE1C9FF8E000D79958 /* RecordScreen-iOS9+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RecordScreen-iOS9+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		294893E21C9FF8E000D79958 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		294893E41C9FF8E000D79958 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 		294893F81C9FFCFC00D79958 /* RecordScreen */ = {
 			isa = PBXGroup;
 			children = (
+				291BE9301CA17B4B00A08114 /* UIApplication+RecordScreen.m */,
+				291BE9311CA17B4B00A08114 /* UIApplication+RecordScreen.h */,
 				294893F91C9FFCFC00D79958 /* NKRecordManager.h */,
 				294893FA1C9FFCFC00D79958 /* NKRecordManager.m */,
 				294893FB1C9FFCFC00D79958 /* NSObject+Extension.h */,
@@ -184,6 +189,7 @@
 				294893E91C9FF8E000D79958 /* ViewController.m in Sources */,
 				294893E61C9FF8E000D79958 /* AppDelegate.m in Sources */,
 				294894041C9FFCFC00D79958 /* UIResponder+Log.m in Sources */,
+				291BE9321CA17B4B00A08114 /* UIApplication+RecordScreen.m in Sources */,
 				294894031C9FFCFC00D79958 /* RPPreviewViewController+Hook.m in Sources */,
 				294894021C9FFCFC00D79958 /* NSObject+Extension.m in Sources */,
 				294893E31C9FF8E000D79958 /* main.m in Sources */,
