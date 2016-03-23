@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'RecordScreen-iOS9-_Example', :exclusive => true do
+  pod 'RecordScreen-iOS9-', :path => '../'
+end
+
+target 'RecordScreen-iOS9-_Tests', :exclusive => true do
+  pod 'RecordScreen-iOS9-', :path => '../'
+
+  
+end

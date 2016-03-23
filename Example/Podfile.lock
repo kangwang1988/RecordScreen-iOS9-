@@ -1,0 +1,14 @@
+PODS:
+  - RecordScreen-iOS9- (0.1.0)
+
+DEPENDENCIES:
+  - RecordScreen-iOS9- (from `../`)
+
+EXTERNAL SOURCES:
+  RecordScreen-iOS9-:
+    :path: ../
+
+SPEC CHECKSUMS:
+  RecordScreen-iOS9-: 44a24c24a783564a48873a96e138332ebe5590f1
+
+COCOAPODS: 0.39.0
