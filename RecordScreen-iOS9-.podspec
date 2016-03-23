@@ -9,22 +9,24 @@
 Pod::Spec.new do |s|
   s.name             = "RecordScreen-iOS9-"
   s.version          = "0.1.0"
-  s.summary          = "A short description of RecordScreen-iOS9-."
+  s.summary          = "RecordScreen-iOS9+ is a project which implements screen recording in iOS9 and above."
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
 #   * Try to keep it short, snappy and to the point.
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
-  s.description      = <<-DESC
-                       DESC
+s.description      = "RecordScreen-iOS9+ is a project which implements screen recording in iOS9 and above.a.Its features are given below:
+    a.A video recording your screen in your app with ReplayKit.
+    b.Red dots indicating user action.
+    c.A log file for user action locating in the /path-to-your-app's-document-directory/nkrecordscreen/log.txt."
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/RecordScreen-iOS9-"
+  s.homepage         = "https://github.com/kangwang1988/RecordScreen-iOS9-"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "KyleWong" => "kang.wang1988@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/RecordScreen-iOS9-.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/kangwang1988/RecordScreen-iOS9-.git", :tag => s.version.to_s }
+  # s.social_media_url = 'https://twitter.com/kang_wang'
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
