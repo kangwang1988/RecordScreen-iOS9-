@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "RecordScreen-iOS9-"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "RecordScreen-iOS9+ is a project which implements screen recording in iOS9 and above."
 
 # This description is used to generate tags and improve search results.
@@ -28,12 +28,11 @@ s.description      = "RecordScreen-iOS9+ is a project which implements screen re
   s.source           = { :git => "https://github.com/kangwang1988/RecordScreen-iOS9-.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/kang_wang'
 
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '9.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
   s.resource_bundles = {
-    'RecordScreen-iOS9-' => ['Pod/Assets/*.png']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
