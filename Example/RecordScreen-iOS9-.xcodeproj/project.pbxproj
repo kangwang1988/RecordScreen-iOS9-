@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2988DC871DE5A6B400C0794A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2988DC861DE5A6B400C0794A /* ReplayKit.framework */; };
 		298E982E1CA2736300CEE327 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 298E982D1CA2736300CEE327 /* LaunchScreen.storyboard */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -23,7 +24,6 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		B31149D343E169FA7B40F7A5 /* libPods-RecordScreen-iOS9-_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD555E45634A38B4BD65E66 /* libPods-RecordScreen-iOS9-_Example.a */; };
-		ECC2EEFBF7D9C1B336D7B758 /* libPods-RecordScreen-iOS9-_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C2CE2846873454AC6340B3 /* libPods-RecordScreen-iOS9-_Tests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2988DC861DE5A6B400C0794A /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		298E982D1CA2736300CEE327 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "RecordScreen-iOS9-/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		39C2CE2846873454AC6340B3 /* libPods-RecordScreen-iOS9-_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RecordScreen-iOS9-_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5397F1C34D8F062D79B3601D /* Pods-RecordScreen-iOS9-_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecordScreen-iOS9-_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RecordScreen-iOS9-_Tests/Pods-RecordScreen-iOS9-_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* RecordScreen-iOS9-_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RecordScreen-iOS9-_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,7 +63,6 @@
 		8622B0DE41F272C8EE8D7918 /* Pods-RecordScreen-iOS9-_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecordScreen-iOS9-_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RecordScreen-iOS9-_Example/Pods-RecordScreen-iOS9-_Example.release.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9B15D4276769999F75BE8810 /* Pods-RecordScreen-iOS9-_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecordScreen-iOS9-_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RecordScreen-iOS9-_Example/Pods-RecordScreen-iOS9-_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		B27B210CB7684CFE1E9D48BD /* Pods-RecordScreen-iOS9-_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecordScreen-iOS9-_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RecordScreen-iOS9-_Tests/Pods-RecordScreen-iOS9-_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		CD2204F7AD0B2058675A7BA9 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		D14177D2AC0D7C333E7F12C0 /* RecordScreen-iOS9-.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "RecordScreen-iOS9-.podspec"; path = "../RecordScreen-iOS9-.podspec"; sourceTree = "<group>"; };
 		DCD555E45634A38B4BD65E66 /* libPods-RecordScreen-iOS9-_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RecordScreen-iOS9-_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2988DC871DE5A6B400C0794A /* ReplayKit.framework in Frameworks */,
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
@@ -88,7 +88,6 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				ECC2EEFBF7D9C1B336D7B758 /* libPods-RecordScreen-iOS9-_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,8 +99,6 @@
 			children = (
 				9B15D4276769999F75BE8810 /* Pods-RecordScreen-iOS9-_Example.debug.xcconfig */,
 				8622B0DE41F272C8EE8D7918 /* Pods-RecordScreen-iOS9-_Example.release.xcconfig */,
-				5397F1C34D8F062D79B3601D /* Pods-RecordScreen-iOS9-_Tests.debug.xcconfig */,
-				B27B210CB7684CFE1E9D48BD /* Pods-RecordScreen-iOS9-_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -131,6 +128,7 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2988DC861DE5A6B400C0794A /* ReplayKit.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
@@ -203,12 +201,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "RecordScreen-iOS9-_Example" */;
 			buildPhases = (
-				3A013890FD32B058D6AB19F0 /* Check Pods Manifest.lock */,
+				3A013890FD32B058D6AB19F0 /* [CP] Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				571112963B951A2D4A71942E /* Embed Pods Frameworks */,
-				FCADC7B210937093C2C0070D /* Copy Pods Resources */,
+				571112963B951A2D4A71942E /* [CP] Embed Pods Frameworks */,
+				FCADC7B210937093C2C0070D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -223,12 +221,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "RecordScreen-iOS9-_Tests" */;
 			buildPhases = (
-				5DD70619CB6FC160413F3ED5 /* Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				D58CC0BA214B147B871BD6B3 /* Embed Pods Frameworks */,
-				A0333142675C987643FDA504 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -250,6 +245,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = KyleWong;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						ProvisioningStyle = Manual;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -297,14 +295,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3A013890FD32B058D6AB19F0 /* Check Pods Manifest.lock */ = {
+		3A013890FD32B058D6AB19F0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,14 +310,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		571112963B951A2D4A71942E /* Embed Pods Frameworks */ = {
+		571112963B951A2D4A71942E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,59 +325,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RecordScreen-iOS9-_Example/Pods-RecordScreen-iOS9-_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5DD70619CB6FC160413F3ED5 /* Check Pods Manifest.lock */ = {
+		FCADC7B210937093C2C0070D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		A0333142675C987643FDA504 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RecordScreen-iOS9-_Tests/Pods-RecordScreen-iOS9-_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D58CC0BA214B147B871BD6B3 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RecordScreen-iOS9-_Tests/Pods-RecordScreen-iOS9-_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FCADC7B210937093C2C0070D /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,13 +469,16 @@
 			baseConfigurationReference = 9B15D4276769999F75BE8810 /* Pods-RecordScreen-iOS9-_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kang Wang (39S29P74A8)";
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RecordScreen-iOS9-/RecordScreen-iOS9--Prefix.pch";
 				INFOPLIST_FILE = "RecordScreen-iOS9-/RecordScreen-iOS9--Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoquneiwai.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = XiaoquneiwaiDev;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -532,20 +488,22 @@
 			baseConfigurationReference = 8622B0DE41F272C8EE8D7918 /* Pods-RecordScreen-iOS9-_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kang Wang (39S29P74A8)";
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RecordScreen-iOS9-/RecordScreen-iOS9--Prefix.pch";
 				INFOPLIST_FILE = "RecordScreen-iOS9-/RecordScreen-iOS9--Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoquneiwai.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = XiaoquneiwaiDev;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5397F1C34D8F062D79B3601D /* Pods-RecordScreen-iOS9-_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -569,7 +527,6 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B27B210CB7684CFE1E9D48BD /* Pods-RecordScreen-iOS9-_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

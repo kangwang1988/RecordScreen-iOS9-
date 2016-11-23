@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+FOUNDATION_EXPORT NSString *kNotificationRecordScreenSaveSuccess;
 @interface NKRecordManager : NSObject
 + (instancetype)sharedInstance;
 - (BOOL)isRecordingSupported;

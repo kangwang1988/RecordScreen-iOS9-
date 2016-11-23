@@ -2,13 +2,11 @@ PODS:
   - RecordScreen-iOS9- (0.1.0)
 
 DEPENDENCIES:
-  - RecordScreen-iOS9- (from `../`)
-
-EXTERNAL SOURCES:
-  RecordScreen-iOS9-:
-    :path: ../
+  - RecordScreen-iOS9-
 
 SPEC CHECKSUMS:
-  RecordScreen-iOS9-: 44a24c24a783564a48873a96e138332ebe5590f1
+  RecordScreen-iOS9-: 73cbdf6c12f189931bbccfc6f996c1290d5c34ac
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: b23d306e9570821dc9d949b7c5be514009a9e791
+
+COCOAPODS: 1.0.1

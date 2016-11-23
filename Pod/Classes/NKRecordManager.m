@@ -6,7 +6,13 @@
 //  Copyright © 2016 KyleWong. All rights reserved.
 //
 #import "NKRecordManager.h"
-#import "NSObject+Extension.h"
+#import <dlfcn.h>
+#import <objc/runtime.h>
+#import <objc/message.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+#import "UIApplication+RecordScreen.h"
+
+NSString * kNotificationRecordScreenSaveSuccess = @"kNotificationRecordScreenSaveSuccess";
 
 typedef void (^RPStartRecordCompletionBlock)(NSError *__nullable *error);
 typedef void (^RPStopRecordCompletionBlock)(id _Nullable previewViewController, NSError * _Nullable error);
@@ -14,7 +20,6 @@ typedef void (^RPStopRecordCompletionBlock)(id _Nullable previewViewController, 
 static NKRecordManager *sRecordManager = nil;
 @interface NKRecordManager()
 {
-//    RPScreenRecorder *_recorder;
     id _recorder;
 }
 @end
@@ -30,7 +35,10 @@ static NKRecordManager *sRecordManager = nil;
 
 - (instancetype)init{
     if(self = [super init]){
-//        _recorder = [RPScreenRecorder sharedRecorder];
+        char *dylibPath = "/System/Library/Framework/ReplayKit.framework/ReplayKit";
+        void *libHandle = dlopen(dylibPath, RTLD_NOW);
+        if (libHandle != NULL) {
+        }
         id cls = objc_getClass("RPScreenRecorder");
         SEL sel = sel_registerName("sharedRecorder");
         _recorder = ((id (*)(id,SEL))objc_msgSend)(cls,sel);
@@ -43,43 +51,30 @@ static NKRecordManager *sRecordManager = nil;
 }
 
 - (BOOL)isRecording{
-//    return _recorder.isRecording;
     return ((BOOL (*)(id,SEL))objc_msgSend)(_recorder,NSSelectorFromString(@"isRecording"));
 }
 
 - (void)startRecording{
     if(!_recorder)
         return;
-#ifdef DEBUG_ENABLED
-    NSLog(@"[KWLM] %@-%@-recorder:%@",self,NSStringFromSelector(_cmd),_recorder);
-#endif
-//    [_recorder startRecordingWithMicrophoneEnabled:YES handler:^(NSError * _Nullable error) {
-//    #ifdef DEBUG_ENABLED
-//        NSLog(@"[KWLM] startRecording result:%@",error);
-//    #endif
-//    }];
     ((void (*)(id,SEL,BOOL,RPStartRecordCompletionBlock))objc_msgSend)(_recorder, NSSelectorFromString(@"startRecordingWithMicrophoneEnabled:handler:"),YES,^(NSError *__nullable *error){
-#ifdef DEBUG_ENABLED
-        NSLog(@"[KWLM] startRecording result:%@",error);
-#endif
     });
 }
 
 - (void)stopRecording{
     if(!_recorder)
         return;
-#ifdef DEBUG_ENABLED
-    NSLog(@"[KWLM] %@-%@-recorder:%@",self,NSStringFromSelector(_cmd),_recorder);
-#endif
-//    [_recorder stopRecordingWithHandler:^(RPPreviewViewController * _Nullable previewViewController, NSError * _Nullable error) {
-//    #ifdef DEBUG_ENABLED
-//        NSLog(@"[KWLM] stopRecordingWithHandler result:%@",error);
-//    #endif
-//    }];
     ((void (*)(id,SEL,RPStopRecordCompletionBlock))objc_msgSend)(_recorder, NSSelectorFromString(@"stopRecordingWithHandler:"),^(id _Nullable previewViewController, NSError * _Nullable error){
-#ifdef DEBUG_ENABLED
-        NSLog(@"[KWLM] stopRecordingWithHandler result:%@",error);
-#endif
+        NSURL *aMovieUrl = [previewViewController valueForKey:@"movieURL"];
+        [self writeVideoToAlbum:aMovieUrl];
     });
+}
+
+- (void)writeVideoToAlbum:(NSURL *)assetURL{
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    [library writeVideoAtPathToSavedPhotosAlbum:assetURL completionBlock:^(NSURL *assetURL, NSError *error){
+        if(!error)
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationRecordScreenSaveSuccess object:assetURL];
+    }];
 }
 @end

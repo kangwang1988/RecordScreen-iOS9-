@@ -8,8 +8,6 @@
 
 #import "UIApplication+RecordScreen.h"
 #import "NKRecordManager.h"
-
-NSString * kNotificationRecordScreenSaveSuccess = @"kNotificationRecordScreenSaveSuccess";
 static NSTimer *autoSaveTimer = nil;
 static NSInteger kAutoSaveRecordScreenInterval = 600; // 默认10min保存一次。
 static UIApplicationState preAppState;
@@ -51,9 +49,6 @@ static UIApplicationState preAppState;
 }
 
 + (void)onTimerExpired:(NSTimer *)aTimer{
-#ifdef DEBUG_ENABLED
-    NSLog(@"[KWLM] %@-%@",self,NSStringFromSelector(_cmd));
-#endif
     if([[NKRecordManager sharedInstance] isRecording]){
         if([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive){
             [[NKRecordManager sharedInstance] stopRecording];
