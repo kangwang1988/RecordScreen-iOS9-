@@ -1,0 +1,12 @@
+PODS:
+  - RecordScreen-iOS9- (0.1.0)
+
+DEPENDENCIES:
+  - RecordScreen-iOS9-
+
+SPEC CHECKSUMS:
+  RecordScreen-iOS9-: 73cbdf6c12f189931bbccfc6f996c1290d5c34ac
+
+PODFILE CHECKSUM: b23d306e9570821dc9d949b7c5be514009a9e791
+
+COCOAPODS: 1.0.1
