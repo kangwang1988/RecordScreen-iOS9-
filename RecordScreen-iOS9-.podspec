@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "RecordScreen-iOS9-"
-  s.version          = "0.1.1"
+  s.version          = "0.1.2"
   s.summary          = "RecordScreen-iOS9+ is a project which implements screen recording in iOS9 and above."
 
 # This description is used to generate tags and improve search results.
