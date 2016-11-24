@@ -6,21 +6,16 @@
 //  Copyright © 2016 KyleWong. All rights reserved.
 //
 #import "NKRecordManager.h"
-#import <dlfcn.h>
-#import <objc/runtime.h>
-#import <objc/message.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <ReplayKit/ReplayKit.h>
 #import "UIApplication+RecordScreen.h"
 
 NSString * kNotificationRecordScreenSaveSuccess = @"kNotificationRecordScreenSaveSuccess";
 
-typedef void (^RPStartRecordCompletionBlock)(NSError *__nullable *error);
-typedef void (^RPStopRecordCompletionBlock)(id _Nullable previewViewController, NSError * _Nullable error);
-
 static NKRecordManager *sRecordManager = nil;
 @interface NKRecordManager()
 {
-    id _recorder;
+    RPScreenRecorder *_recorder;
 }
 @end
 
@@ -35,13 +30,7 @@ static NKRecordManager *sRecordManager = nil;
 
 - (instancetype)init{
     if(self = [super init]){
-        char *dylibPath = "/System/Library/Framework/ReplayKit.framework/ReplayKit";
-        void *libHandle = dlopen(dylibPath, RTLD_NOW);
-        if (libHandle != NULL) {
-        }
-        id cls = objc_getClass("RPScreenRecorder");
-        SEL sel = sel_registerName("sharedRecorder");
-        _recorder = ((id (*)(id,SEL))objc_msgSend)(cls,sel);
+        _recorder = [RPScreenRecorder sharedRecorder];
     }
     return self;
 }
@@ -51,23 +40,24 @@ static NKRecordManager *sRecordManager = nil;
 }
 
 - (BOOL)isRecording{
-    return ((BOOL (*)(id,SEL))objc_msgSend)(_recorder,NSSelectorFromString(@"isRecording"));
+    return _recorder.isRecording;
 }
 
 - (void)startRecording{
     if(!_recorder)
         return;
-    ((void (*)(id,SEL,BOOL,RPStartRecordCompletionBlock))objc_msgSend)(_recorder, NSSelectorFromString(@"startRecordingWithMicrophoneEnabled:handler:"),YES,^(NSError *__nullable *error){
-    });
+    [_recorder startRecordingWithMicrophoneEnabled:YES handler:^(NSError * _Nullable error) {
+        
+    }];
 }
 
 - (void)stopRecording{
     if(!_recorder)
         return;
-    ((void (*)(id,SEL,RPStopRecordCompletionBlock))objc_msgSend)(_recorder, NSSelectorFromString(@"stopRecordingWithHandler:"),^(id _Nullable previewViewController, NSError * _Nullable error){
+    [_recorder stopRecordingWithHandler:^(RPPreviewViewController * _Nullable previewViewController, NSError * _Nullable error) {
         NSURL *aMovieUrl = [previewViewController valueForKey:@"movieURL"];
         [self writeVideoToAlbum:aMovieUrl];
-    });
+    }];
 }
 
 - (void)writeVideoToAlbum:(NSURL *)assetURL{
